@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Does Tiffany Love Romano?</title>
+  <style>
+    body {
+      background-color: lightpink;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      margin: 0;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #d6336c;
+    }
+    .button-container {
+      margin-top: 30px;
+      position: relative;
+      height: 300px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #yes {
+      background-color: #4CAF50;
+      color: white;
+    }
+    #no {
+      background-color: #f44336;
+      color: white;
+      position: absolute;
+    }
+    #gif {
+      margin-top: 20px;
+      max-width: 80%;
+    }
+    #love-message {
+      display: none;
+      font-size: 2.5rem;
+      color: #ff3366;
+      margin-top: 40px;
+    }
+    #love-gif {
+      display: none;
+      margin: 20px auto 0;
+      max-width: 90%;
+      border-radius: 20px;
+      display: block;
+    }
+    .back-button {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 20px;
+      font-size: 1rem;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .back-button:hover {
+      background-color: #ff85c1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Does Tiffany love Romano?</h1>
+  <img id="gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmQyNDV1M2Q3c3hmY3I5NTNqanJjZDJtZTkwODRqcG1jN3lhaTRqdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KztT2c4u8mYYUiMKdJ/giphy.gif" alt="Cute GIF" />
+  <div class="button-container">
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+  </div>
+  <div id="love-message">I LOVE YOU MORE ❤️</div>
+  <img id="love-gif" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmo4MjBlMGcxNzg5bDgzMDd1cWgzYmV6Y2VqbGNxeG4yb3h1a2tiYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MrT2N67Tspk7CJvrAy/giphy.gif" alt="Love GIF">
+  <button class="back-button" onclick="window.location.reload()">wait ask me again</button>
+
+  <script>
+    const noButton = document.getElementById("no");
+    const yesButton = document.getElementById("yes");
+    const message = document.getElementById("love-message");
+    const loveGif = document.getElementById("love-gif");
+    const backButton = document.querySelector(".back-button");
+
+    noButton.addEventListener("mouseenter", () => {
+      const container = document.querySelector(".button-container");
+      const maxX = container.clientWidth - noButton.offsetWidth;
+      const maxY = container.clientHeight - noButton.offsetHeight;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      noButton.style.left = `${randomX}px`;
+      noButton.style.top = `${randomY}px`;
+    });
+
+    yesButton.addEventListener("click", () => {
+      message.style.display = "block";
+      loveGif.style.display = "block";
+      backButton.style.display = "inline-block";
+      document.querySelector(".button-container").style.display = "none";
+      document.getElementById("gif").style.display = "none";
+    });
+  </script>
+</body>
+</html>
